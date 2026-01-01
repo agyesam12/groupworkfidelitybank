@@ -10,7 +10,7 @@ All views implement proper authentication, authorization, and follow Django best
 """
 
 from django.views.generic import (
-    ListView, DetailView, CreateView, UpdateView, DeleteView
+    ListView, DetailView, CreateView, UpdateView, DeleteView, View
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
@@ -28,6 +28,10 @@ from .models import (
 )
 
 
+class HomeView(View):
+    template_name = 'home.html'
+    def get(self, request):
+        return render(request, self.template_name)
 # ============================================================================
 # MIXIN CLASSES FOR ROLE-BASED ACCESS CONTROL
 # ============================================================================
