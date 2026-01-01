@@ -428,7 +428,7 @@ class ATMDetailView(LoginRequiredMixin, DetailView):
 
 
 class ATMCreateView(LoginRequiredMixin, ITStaffRequiredMixin, AuditLogMixin, CreateView):
-    """Create a new ATM."""
+
     model = ATM
     template_name = 'atms/atm_form.html'
     fields = ['atm_code', 'branch', 'location_description', 'model', 'manufacturer',
